@@ -8,7 +8,7 @@
           num[i][j] 的行为0 将矩阵转置后 num[j][i]的行也为0  则该点是特殊点
       3、计算 行的和为0 并且 列的和为0的点即可
             rows=[sum([mat[i][j] for j in range(n)]) for i in range(m)]
-            cols=[sum([mat[i][j] for i in range(m)]) for j in range(n)]
+            cols=[sum([mat[i][j] for i in range(m)]) for j in range(n)]#看清楚角标，由于要计算行，并固定列 因此 i要不断变换 它代表行数
       
       #################################################################################################################
       class Solution:

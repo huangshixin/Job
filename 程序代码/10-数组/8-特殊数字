@@ -1,0 +1,25 @@
+      给定一个二维数组。二维数组中的每一个值都是0 或者 1，现在要求找到数组中 num[i][j]==1 并且除了改点外，i行j列的其它元素都是0的特殊点;
+      
+      
+      #################################################################################################################
+      #解题思路：
+      1、先计算获得矩阵的长和宽
+      2、矩阵的某一点为1，说明该矩阵的转置矩阵的 位置的状态与它该点的状态是一致的；
+          num[i][j] 的行为0 将矩阵转置后 num[j][i]的行也为0  则该点是特殊点
+      3、计算 行的和为0 并且 列的和为0的点即可
+            rows=[sum([mat[i][j] for j in range(n)]) for i in range(m)]
+            cols=[sum([mat[i][j] for i in range(m)]) for j in range(n)]
+      
+      #################################################################################################################
+      class Solution:
+        def numSpecial(self, mat: List[List[int]]) -> int:
+            m,n=len(mat),len(mat[0])
+            rows=[sum([mat[i][j] for j in range(n)]) for i in range(m)]
+            cols=[sum([mat[i][j] for i in range(m)]) for j in range(n)]
+            ans=0
+            for i in range(m):
+                for j in range(n):
+                    if mat[i][j]==1 and rows[i]==1 and cols[j]==1:
+                        ans+=1
+            return ans
+      

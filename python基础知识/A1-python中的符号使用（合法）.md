@@ -7,3 +7,10 @@
 
     【2022/9/12 】 在while 或者 for循环中不要使用sort;----无法执行
      
+     
+     
+    【2022/9/13】 
+    判断表达式：     A if 【condition】 else B ----如果符合条件condition返回A，否则返回B
+    assert A>3 如果大于3可以通过，否则直接报错
+    
+    

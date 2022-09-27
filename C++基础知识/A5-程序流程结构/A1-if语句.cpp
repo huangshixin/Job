@@ -6,9 +6,6 @@
 
 
 
-
-
-
 选择结构
 
 【单条if】
@@ -45,7 +42,32 @@
 
 
 
+【嵌套】
+#include <iostream>
+using namespace std;
+#include <string>
+#define Day  100;
+int main() {
+	//整型输入
+	int a =30;
+	int b=4;
+	if (a <35) {
+		if (a = 30) {//这就显示 嵌套
+			cout << "ddddddddddd" << endl;
+		}
+	}
+	if (b<3)
+	{
+		cout << "bbbbb" << endl;
+	}
+	else {
+		cout << "请输入整数型数据a:" << a % b << endl;
+	}
+	
 
+	system("pause");
+	return 0;
+}
 
 
 

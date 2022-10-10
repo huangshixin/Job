@@ -25,3 +25,38 @@ for (int i=0;i<=value-1;i++){
       <<p[i].age
       <<p[i].score<<endl;
 }  
+
+
+
+
+
+#include<iostream>
+using namespace std;
+#include<math.h>
+#include<string>
+
+struct student 
+{
+    //定义一个结构体
+    string name;
+    int age;
+    int score;
+
+};
+int main() {
+
+    struct student s1[3] = {
+        //定义了一个结构体数组
+        {"zhangshan",17,98},
+        {"wangwu",17,98},
+        {"zhaoliu",17,98},
+    };
+
+    student * p = s1;//结构体数组本身就是一个地址，因此不需要使用&符号 但是如果是int a=10;需要 int *p=&a;
+    for (int j = 0; j < 3; j++) {
+        cout << p->name << endl;
+        p = p++;#让指针自增
+    }
+	system("pause");
+	return 0;
+}

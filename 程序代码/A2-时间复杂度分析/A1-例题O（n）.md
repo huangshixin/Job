@@ -53,15 +53,41 @@
             return list(a)
         
         【思路2】
-        假设 这两个数是a 和 b，那么从头到尾对每一个数进行异或；偶数次的都被异或后---消除为0了
-        
-        而a和b不相同，故a^b不为0 ；
+        假设 这两个数是a 和 b，那么从头到尾对每一个数进行异或；偶数次的都被异或后---消除为0了而a和b不相同，故a^b不为0 ；
         
         【第一个信息】 得到a^b ,且 a^b不为0，因此某一位上是不等于0的
         
         【假定某一位不为0】，说明这一位上的数是不相同的，对于a和b；
 
+        1、a^b不等于0，说明有一个位置上不等于0，利用这个关键，说明a，b在这个位置上是不相同的；我们可以设定一个新的变量，专门去异或【这个位置上为1】的数，这样，就相当于得到了a 或者b；
         
+        a，b必定被分为两侧；
+        
+        2、那如何得到另一个数呢？
+        eor = a^b
+        
+        设定新的变量 eor_new =a  or eor_new=b
+        把eor ^eor_new 就可以得到另一个；
+        
+        
+        
+        
+       class Solution:
+            def singleNumbers(self, nums: List[int]) -> List[int]:
+                '''哈希集合'''
+                eor = 0
+                for i in nums:
+                    eor^=i
+
+                #现在去查找这个数哪个位置为1；
+                rightOne = eor& (~eor+1) #取出最右侧的1【技巧】
+                onlyOne = 0
+
+                #现在去原来的数组中去寻找，在该位置为1的数，然后与0异或
+                for i in nums:
+                    if (i&rightOne)==rightOne:
+                        onlyOne^=i#这一部分相当于只拿了一侧的数据，【位运算，比算术运算快】
+                return [onlyOne,eor^onlyOne]  # 之后拿之前的异或这个onlyOne
         
         
         

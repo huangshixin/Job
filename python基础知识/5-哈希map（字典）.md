@@ -33,3 +33,13 @@
         
         for i in dic:
             print(dic[i]) ----引用value
+
+
+
+######################################################################################################
+
+                info = {'name':'班长', 'id':100, 'sex':'f', 'address':'北京'}
+                age = info.get('age')#get方法没有查到就会返回None
+                print(age)
+                age=info.get('age',18)#相当于给了key 和value
+                print(age)

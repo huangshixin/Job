@@ -27,5 +27,9 @@
       特殊情况strip（"ab"），当字符串调用它的时候，它会将字符串两侧包含a或者b的全部删除
     
     
-    
+ 4、endswith：作用是判断字符串是否存在于另一个字符串当中；返回Bool类型
+
+st1= 'hello,world'
+st2 ='world'
+print(st1.endswith(st2,2) 表示从st1的第二个字符开始，查找st2是不是st1的结尾；
     
